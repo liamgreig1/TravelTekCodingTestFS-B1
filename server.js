@@ -1,9 +1,12 @@
+const cors = require('cors');
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000;
   mongoose = require('mongoose'),
   Task = require('./api/models/flightModel'), //created model loading here
   bodyParser = require('body-parser');
+
+app.use(cors());
 
   // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
@@ -20,5 +23,10 @@ app.listen(port);
 app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
 });
+
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // For legacy browser support
+}
 
 console.log('Read CSV API server started on: ' + port);

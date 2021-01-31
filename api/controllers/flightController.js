@@ -4,10 +4,10 @@ var mongoose = require('mongoose'),
   FlightSegment = mongoose.model('flight_segment');
 
 exports.list_all_flights = function(req, res) {
-  Flight.find({}, function(err, flihgts) {
+  Flight.find({}, function(err, flights) {
     if (err)
       res.send(err);
-    res.json(flihgts);
+    res.json(flights);
   });
 };
 
