@@ -45,3 +45,29 @@ exports.get_most_stops = function(req, res) {
     res.json(flightid);
   });
 };
+
+exports.get_flight_numbers_per_day = function(req, res) {
+  Flight.aggregate([ 
+    { $group: 
+    { _id: { $add: 
+    [ { $dayOfYear: "$outdepartdate"}, { $multiply: [400, {$year: "$outdepartdate"}] } ]}, 
+      outflightno: { $sum: 1 }, first: {$min: "$outdepartdate"} } }, 
+    { $sort: {_id: 1} }, 
+    { $project: { outdepartdate: "$first", outflightno: 1, _id:0} }], function(err, flightNumbers) {
+  if (err)
+    res.send(err);
+  res.json(flightNumbers);
+  });
+};
+
+exports.get_top_dest = function(req, res){
+  Flight.aggregate([
+    { "$group": { "_id": { "destair": "$destair" }, "count": { "$sum":1 } }}, 
+    { "$group": { "_id": "$_id.destair", "count": { "$sum": "$count" } }}, 
+    {"$sort": { "count":-1 }}, 
+    {$limit:10}], function(err, dest){
+  if (err)
+    res.send(err);
+  res.json(dest);
+  });
+}

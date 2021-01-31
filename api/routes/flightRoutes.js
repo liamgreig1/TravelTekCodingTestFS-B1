@@ -14,4 +14,10 @@ module.exports = function(app) {
 
   app.route('/moststops')
     .get(flights.get_most_stops);
+
+  app.route('/flightsperday')
+    .get(flights.get_flight_numbers_per_day);
+  
+  app.route('/topdest')
+    .get(flights.get_top_dest);
 };

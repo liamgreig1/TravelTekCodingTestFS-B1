@@ -24,9 +24,4 @@ app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
 });
 
-var corsOptions = {
-  origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200 // For legacy browser support
-}
-
 console.log('Read CSV API server started on: ' + port);
