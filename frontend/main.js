@@ -1,18 +1,40 @@
-// let base64 = require('base-64');
 
-// let username = 'lgreig200';
-// let password = 'Liamgreig1998!';
+async function get_most_stops(){
+    let url = 'http://localhost:3000/moststops';
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-// let headers = new Headers();
+async function get_flight_info() {
+    let flights = await get_most_stops();
+    var flightId;
+    flights.forEach(flight => {
+        flightId = flight.flightid
+    });
+    return flightId;
+}
 
-// headers.set('Authorization', 'Basic ' + base64.encode(username + ":" + password));
+async function process_flight_info() {
+    let url = 'http://localhost:3000/flight/';
+    url = url + await get_flight_info();
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-// fetch('http://localhost:3000/moststops', {method:'GET', headers: headers, 
-// //credentials: username + ':' + password
-// })
-fetch('http://localhost:3000/moststops')
-    // Handle success
-    .then(response => response.json())  // convert to json
-    .then(json => console.log(json))    //print data to console
-    .catch(err => console.log('Request Failed', err)); // Catch errors
+async function print_most_stop_flight_info(){
+    let allInfo = await process_flight_info();
+    console.log(allInfo)
+}
+
+print_most_stop_flight_info();
+
+
 
