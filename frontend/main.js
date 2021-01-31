@@ -31,10 +31,9 @@ async function process_flight_info() {
 
 async function print_most_stop_flight_info(){
     let allInfo = await process_flight_info();
+    document.getElementById("flightno").innerHTML = allInfo.inflightno;
+    document.getElementById("carrier").innerHTML = allInfo.carrier;
     console.log(allInfo)
 }
 
 print_most_stop_flight_info();
-
-
-
