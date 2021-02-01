@@ -71,3 +71,19 @@ exports.get_top_dest = function(req, res){
   res.json(dest);
   });
 }
+
+exports.get_all_times = function(req, res){
+  Flight.find({}, {outdeparttime:1, _id:0}, function(err, time) {
+  if (err)
+    res.send(err);
+  res.json(time);
+  });
+}
+
+exports.get_avg_price = function(req,res){
+  Flight.aggregate([{$group: {_id:"$originalcurrency", price: {$avg:"$originalprice"}}}], function(err, price){
+  if (err)
+    res.send(err);
+  res.json(price);
+  });
+}

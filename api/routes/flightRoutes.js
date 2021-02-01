@@ -20,4 +20,10 @@ module.exports = function(app) {
   
   app.route('/topdest')
     .get(flights.get_top_dest);
+  
+  app.route('/gettimes')
+    .get(flights.get_all_times);
+
+  app.route('/avgprice')
+    .get(flights.get_avg_price);
 };
