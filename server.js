@@ -6,6 +6,7 @@ var express = require('express'),
   Task = require('./api/models/flightModel'), //created model loading here
   bodyParser = require('body-parser');
 
+  //IMPORTANT for using local host - lets server send data to browser
 app.use(cors());
 
   // mongoose instance connection url connection
@@ -20,8 +21,9 @@ routes(app); //register the route
 
 app.listen(port);
 
+//Deals with any unknown routes 
 app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
 });
 
-console.log('Read CSV API server started on: ' + port);
+console.log('Read Flight API server started on: ' + port);

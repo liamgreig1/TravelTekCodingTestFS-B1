@@ -55,7 +55,7 @@ async function display_count_per_day() {
         html += htmlSegment;
     });
 
-    let container = document.querySelector('.container');
+    let container = document.querySelector('.day');
     container.innerHTML = html;
 }
 

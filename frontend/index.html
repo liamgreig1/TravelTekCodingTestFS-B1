@@ -10,27 +10,133 @@
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
   <script type = "text/javascript" src="main.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-  <h2>Which flight has the most stops?</h2>
-  <p>Flight No. <span id="flightno"></p>
-  <p> has the most stop in one day and this flight is flown by <span id="carrier"/></p>
+  <div class="jumbotron text-center">
+    <h1>Traveltek Coding Test</h1>
+    <p>By Liam Greig</p>
+  </div>
 
-  <h2>How many flights depart in the morning?</h2>
-  <p>Flight departures before 12am: <span id="departures"></p>
-
-  <h2>Top 10 Destinations from 01/01/2018 - 01/02/2018</h2>
-  <div class="topdest"></div>
-
-  <h2>How many different flight numbers are on each day?</h2>
-  <div class="container"></div>
-
-  <h2>Average price of a ticket per currency</h2>
-  <div class="avgprice"></div>
-  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h2>Which flight has the most stops?</h2>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                Show which flight had the most stops!
+              </a>
+            </div>
+            <div id="collapseOne" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <p>Flight No. <span id="flightno"></p>
+                <p>This flight is flown by <span id="carrier"/></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <h2>How many flights depart in the morning?</h2>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                How many flights took off before 12AM 
+              </a>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <p>Flight departures before 12am: <span id="departures"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <h2>Average price of a ticket per currency</h2>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseThree">
+                Click to see average prices of tickets
+              </a>
+            </div>
+            <div id="collapseThree" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <div class="avgprice"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Top 10 Destinations from 01/01/2018 - 01/02/2018</h2>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseFour">
+                Find out the top 10 destinations!
+              </a>
+            </div>
+            <div id="collapseFour" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <div class="topdest"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <h2>How many different flight numbers per day?</h2>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseFive">
+                Click to see how many fights per day
+              </a>
+            </div>
+            <div id="collapseFive" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <div class="day"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <footer class="mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h2>Technologies used</h2>
+            <ul>
+              <li>API: NodeJS</li>
+              <li>Database: MongoDB</li>
+              <li>Frontend: HTML, CSS, Javascript</li>
+            </ul>
+        </div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <h2>Social Media</h2>
+            <ul>
+              <li>LinkedIn: <a href="https://www.linkedin.com/in/liam-greig-428833b8" target="_blank">Liam Greig</a></li>
+              <li>GitHub: <a href="https://github.com/liamgreig1" target="_blank">liamgreig1</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
