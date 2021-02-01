@@ -23,3 +23,4 @@ Install Node: (https://nodejs.org/en/download/package-manager/)
 VSCode Extentions: 
 - **Live Server** used to host frontend
 
+![Alt text](./img/Frontend.png?raw=true "Frontend Design")
