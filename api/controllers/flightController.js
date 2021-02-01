@@ -3,21 +3,8 @@ var mongoose = require('mongoose'),
   Flight = mongoose.model('flights'),
   FlightSegment = mongoose.model('flight_segment');
 
-exports.list_all_flights = function(req, res) {
-  Flight.find({}, function(err, flights) {
-    if (err)
-      res.send(err);
-    res.json(flights);
-  });
-};
-
-exports.list_all_segments = function(req, res) {
-  FlightSegment.find({}, function(err, flight_segment) {
-    if (err)
-      res.send(err);
-    res.json(flight_segment);
-  });
-};
+//Controller uses mongoDB commands to get the information required from the mongoDB
+//All data set using GET is returned as JSON
 
 exports.get_a_flight = function(req, res) {
   Flight.findOne({id: req.params.id}, function(err, flight) {
@@ -27,6 +14,7 @@ exports.get_a_flight = function(req, res) {
   });
 };
 
+//
 exports.get_most_stops = function(req, res) {
   FlightSegment.aggregate([ 
     {$group: 

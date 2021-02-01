@@ -7,7 +7,7 @@ Install MongoDB : (https://docs.mongodb.com/mongocli/stable/install)
 In the cli:
 - mongoimport --db flights --collection flights --type csv --headerline --file flighdata_B.csv
 - mongoimport --db flights --collection flight_segments --type csv --headerline --file flighdata_B_segments.csv
-- monog
+- mongo
 
 When mongo is open need to deal with date issue:
 - db.flights.find({outdepartdate: {$not: {$type: 9}}}).forEach(function(doc) { doc.outdepartdate = new Date(doc.outdepartdate); db.flights.save(doc); })

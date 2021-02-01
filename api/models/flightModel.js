@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+//Models of mongoDB collections
 var FlightSchema = new Schema({
     id: {type: Number},
     depair: {type: String},

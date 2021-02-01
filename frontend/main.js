@@ -128,8 +128,6 @@ async function display_avg_price(){
     container.innerHTML = html;
 
 }
-
-
 display_most_stop_flight_info();
 display_count_per_day();
 display_top_dest();
