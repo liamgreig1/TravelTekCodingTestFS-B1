@@ -20,6 +20,8 @@ Install NVM: (https://itnext.io/nvm-the-easiest-way-to-switch-node-js-environmen
 Install Node: (https://nodejs.org/en/download/package-manager/) 
 Node version used: 15.7.0
 
+To Run server: npm run start (in the cli)
+
 ### Development Help
 
 VSCode Extentions: 
